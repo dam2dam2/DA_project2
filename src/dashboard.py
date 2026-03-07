@@ -18,8 +18,10 @@ st.set_page_config(
 # --- 1. 데이터 로드 ---
 @st.cache_data
 def load_data():
-    file_path = (
-        "/Users/dami/innercircle/DA_project2/data/daily_bike_rentals_2015_2025.csv"
+    # 상대 경로 사용 (배포 환경 호환성)
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(
+        current_dir, "..", "data", "daily_bike_rentals_2015_2025.csv"
     )
     if not os.path.exists(file_path):
         return None
