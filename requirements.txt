@@ -6,3 +6,5 @@ matplotlib
 koreanize-matplotlib
 seaborn
 setuptools
+statsmodels
+scipy
