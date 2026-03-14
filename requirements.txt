@@ -1,10 +1,7 @@
-streamlit
 pandas
+streamlit
 plotly
-openpyxl
 matplotlib
-koreanize-matplotlib
 seaborn
-setuptools
-statsmodels
-scipy
+koreanize-matplotlib
+numpy

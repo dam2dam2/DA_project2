@@ -15,9 +15,16 @@ st.title("🚀 항공 통계 종합 인사이트 대시보드")
 @st.cache_data
 def get_base_data():
     try:
+        # 파일 경로를 스크립트 위치 기준으로 설정 (클라우드 환경 대응)
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        flights_path = os.path.join(base_path, "data", "airport_flights_2002_2025.csv")
+        passengers_path = os.path.join(
+            base_path, "data", "airport_passengers_2002_2025.csv"
+        )
+
         # UTF-8 BOM 대응을 위해 utf-8-sig 사용
-        df = pd.read_csv("data/airport_flights_2002_2025.csv", encoding="utf-8-sig")
-        p = pd.read_csv("data/airport_passengers_2002_2025.csv", encoding="utf-8-sig")
+        df = pd.read_csv(flights_path, encoding="utf-8-sig")
+        p = pd.read_csv(passengers_path, encoding="utf-8-sig")
 
         # 숫자형 변환 전 콤마 제거 및 공백 정리
         for col in ["flight", "arrFlight", "depFlight"]:
