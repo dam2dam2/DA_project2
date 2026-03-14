@@ -5,3 +5,4 @@ matplotlib
 seaborn
 koreanize-matplotlib
 numpy
+altair<5

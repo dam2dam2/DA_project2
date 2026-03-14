@@ -11,9 +11,9 @@ st.set_page_config(page_title="항공 통계 익스트림 대시보드", layout=
 st.title("🚀 항공 통계 종합 인사이트 대시보드")
 
 
-# 데이터 로드 함수
+# 데이터 로드 함수 (v2: 캐시 갱신 및 데이터 타입 강화)
 @st.cache_data
-def get_base_data():
+def get_base_data_v2():
     try:
         # 파일 경로를 스크립트 위치 기준으로 설정 (클라우드 환경 대응)
         base_path = os.path.dirname(os.path.abspath(__file__))
@@ -26,26 +26,20 @@ def get_base_data():
         df = pd.read_csv(flights_path, encoding="utf-8-sig")
         p = pd.read_csv(passengers_path, encoding="utf-8-sig")
 
-        # 숫자형 변환 전 콤마 제거 및 공백 정리
+        # 숫자형 데이터 강제 변환 (콤마 제거 및 비수치 데이터 처리)
+        def robust_numeric(series):
+            return pd.to_numeric(
+                series.astype(str).str.replace(",", "").replace("-", "0"),
+                errors="coerce",
+            ).fillna(0)
+
         for col in ["flight", "arrFlight", "depFlight"]:
             if col in df.columns:
-                df[col] = (
-                    df[col]
-                    .astype(str)
-                    .str.replace(",", "")
-                    .replace("-", "0")
-                    .astype(float)
-                )
+                df[col] = robust_numeric(df[col])
 
         for col in ["passenger", "arrPassenger", "depPassenger"]:
             if col in p.columns:
-                p[col] = (
-                    p[col]
-                    .astype(str)
-                    .str.replace(",", "")
-                    .replace("-", "0")
-                    .astype(float)
-                )
+                p[col] = robust_numeric(p[col])
 
         df = pd.merge(df, p, on=["year", "time"])
         return df
@@ -59,7 +53,7 @@ st.sidebar.header("📊 분석 통합 필터")
 year_range = st.sidebar.slider("분석 연도 범위", 2002, 2025, (2002, 2025))
 
 # 메인 지표 계산
-base_df = get_base_data()
+base_df = get_base_data_v2()
 if not base_df.empty:
     filtered_base = base_df[
         (base_df["year"] >= year_range[0]) & (base_df["year"] <= year_range[1])
