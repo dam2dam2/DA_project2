@@ -102,12 +102,12 @@ with tabs[0]:
         st.image(
             f"{IMG_DIR}/02_yearly_flight.png",
             caption="연도별 운항 추이",
-            use_container_width=True,
+            width="stretch",
         )
     st.image(
         f"{IMG_DIR}/03_yearly_cargo.png",
         caption="연도별 화물 수송량 추이 (안정적 성장세)",
-        use_container_width=True,
+        width="stretch",
     )
 
 with tabs[1]:
@@ -118,13 +118,13 @@ with tabs[1]:
         st.image(
             f"{IMG_DIR}/04_monthly_season.png",
             caption="월별 계절성 (성수기 분석)",
-            use_container_width=True,
+            width="stretch",
         )
     with c2:
         st.image(
             f"{IMG_DIR}/05_day_dist.png",
             caption="요일별 운송량 분포",
-            use_container_width=True,
+            width="stretch",
         )
 
     st.markdown("#### ⏰ 시간대별 혼잡도 분석")
@@ -133,13 +133,13 @@ with tabs[1]:
         st.image(
             f"{IMG_DIR}/06_hourly_pax.png",
             caption="시간대별 평균 여객 피크",
-            use_container_width=True,
+            width="stretch",
         )
     with c4:
         st.image(
             f"{IMG_DIR}/07_hourly_flight.png",
             caption="시간대별 운항 슬롯 점유",
-            use_container_width=True,
+            width="stretch",
         )
 
 with tabs[2]:
@@ -150,19 +150,19 @@ with tabs[2]:
         st.image(
             f"{IMG_DIR}/08_sched_pie.png",
             caption="정기 vs 부정기",
-            use_container_width=True,
+            width="stretch",
         )
     with col2:
         st.image(
             f"{IMG_DIR}/09_pax_type_pie.png",
             caption="유임 vs 환승",
-            use_container_width=True,
+            width="stretch",
         )
     with col3:
         st.image(
             f"{IMG_DIR}/10_direction_pie.png",
             caption="출발 vs 도착",
-            use_container_width=True,
+            width="stretch",
         )
 
     c_sub1, c_sub2 = st.columns(2)
@@ -170,13 +170,13 @@ with tabs[2]:
         st.image(
             f"{IMG_DIR}/11_dom_intl_ratio.png",
             caption="국내선 vs 국제선 비중",
-            use_container_width=True,
+            width="stretch",
         )
     with c_sub2:
         st.image(
             f"{IMG_DIR}/12_airport_share.png",
             caption="주요 거점 공항별 분담률",
-            use_container_width=True,
+            width="stretch",
         )
 
 with tabs[3]:
@@ -185,20 +185,20 @@ with tabs[3]:
     st.image(
         f"{IMG_DIR}/13_intl_region.png",
         caption="국제선 지역별 수요 분포 (아시아 허브)",
-        use_container_width=True,
+        width="stretch",
     )
     c1, c2 = st.columns(2)
     with c1:
         st.image(
             f"{IMG_DIR}/14_top15_intl.png",
             caption="상위 15개 국제 노선",
-            use_container_width=True,
+            width="stretch",
         )
     with c2:
         st.image(
             f"{IMG_DIR}/15_intl_growth.png",
             caption="국제선 연간 성장률 추이",
-            use_container_width=True,
+            width="stretch",
         )
 
     st.markdown("#### 🇰🇷 국내선 및 항공사 현황")
@@ -207,13 +207,13 @@ with tabs[3]:
         st.image(
             f"{IMG_DIR}/16_top10_dom.png",
             caption="국내 상위 노선 (제주 중심)",
-            use_container_width=True,
+            width="stretch",
         )
     with c4:
         st.image(
             f"{IMG_DIR}/17_airline_share.png",
             caption="항공사별 시장 점유율",
-            use_container_width=True,
+            width="stretch",
         )
 
 with tabs[4]:
@@ -221,25 +221,25 @@ with tabs[4]:
     st.image(
         f"{IMG_DIR}/18_delay_trend.png",
         caption="연도별 지연 발생 빈도",
-        use_container_width=True,
+        width="stretch",
     )
     c1, c2 = st.columns(2)
     with c1:
         st.image(
             f"{IMG_DIR}/19_monthly_delay.png",
             caption="월별 지연 집중도",
-            use_container_width=True,
+            width="stretch",
         )
     with c2:
         st.image(
             f"{IMG_DIR}/20_cancel_trend.png",
             caption="연도별 결항 발생 건수",
-            use_container_width=True,
+            width="stretch",
         )
     st.image(
         f"{IMG_DIR}/21_delay_cancel_corr.png",
         caption="공항별 지연-결항 상관관계",
-        use_container_width=True,
+        width="stretch",
     )
 
 with tabs[5]:
@@ -250,25 +250,25 @@ with tabs[5]:
     st.image(
         f"{IMG_DIR}/22_weather_heatmap.png",
         caption="기상 요인-결항 상관분석 히트맵",
-        use_container_width=True,
+        width="stretch",
     )
     c1, c2 = st.columns(2)
     with c1:
         st.image(
             f"{IMG_DIR}/23_wind_reg.png",
             caption="풍속과 결항의 선형 회귀 분석",
-            use_container_width=True,
+            width="stretch",
         )
     with c2:
         st.image(
             f"{IMG_DIR}/24_precip_bubble.png",
             caption="강수량-풍속-기온 복합 분석",
-            use_container_width=True,
+            width="stretch",
         )
     st.image(
         f"{IMG_DIR}/25_seasonal_variation.png",
         caption="계절별 결항 발생 편차 및 아웃라이어 분석",
-        use_container_width=True,
+        width="stretch",
     )
 
 st.sidebar.markdown("---")
