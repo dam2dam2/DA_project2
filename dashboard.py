@@ -6,26 +6,44 @@ import os
 import glob
 
 # 페이지 설정
-st.set_page_config(
-    page_title="항공 통계 익스트림 대시보드 (25+ Analytics)", layout="wide"
-)
+st.set_page_config(page_title="항공 통계 익스트림 대시보드", layout="wide")
 
-st.title("🚀 항공 통계 종합 인사이트 대시보드 (25+ EDA)")
-st.markdown(
-    "전 국가적 항공 데이터와 기상 데이터를 통합 분석한 25가지 이상의 심층 인사이트를 제공합니다."
-)
+st.title("🚀 항공 통계 종합 인사이트 대시보드")
 
 
 # 데이터 로드 함수
 @st.cache_data
 def get_base_data():
     try:
-        df = pd.read_csv("data/airport_flights_2002_2025.csv")
-        p = pd.read_csv("data/airport_passengers_2002_2025.csv")
-        p["passenger"] = p["passenger"].astype(str).str.replace(",", "").astype(float)
+        # UTF-8 BOM 대응을 위해 utf-8-sig 사용
+        df = pd.read_csv("data/airport_flights_2002_2025.csv", encoding="utf-8-sig")
+        p = pd.read_csv("data/airport_passengers_2002_2025.csv", encoding="utf-8-sig")
+
+        # 숫자형 변환 전 콤마 제거 및 공백 정리
+        for col in ["flight", "arrFlight", "depFlight"]:
+            if col in df.columns:
+                df[col] = (
+                    df[col]
+                    .astype(str)
+                    .str.replace(",", "")
+                    .replace("-", "0")
+                    .astype(float)
+                )
+
+        for col in ["passenger", "arrPassenger", "depPassenger"]:
+            if col in p.columns:
+                p[col] = (
+                    p[col]
+                    .astype(str)
+                    .str.replace(",", "")
+                    .replace("-", "0")
+                    .astype(float)
+                )
+
         df = pd.merge(df, p, on=["year", "time"])
         return df
-    except:
+    except Exception as e:
+        st.error(f"데이터 로드 중 오류 발생: {e}")
         return pd.DataFrame()
 
 
