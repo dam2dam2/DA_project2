@@ -82,6 +82,8 @@ tabs = st.tabs(
         "🌐 노선 및 시장",
         "⚠️ 정시성 장애",
         "🌦️ 기상 상관분석",
+        "✈️ 국제 상세분석",
+        "🌏 지역별 심층 분석",
     ]
 )
 
@@ -271,6 +273,57 @@ with tabs[5]:
         width="stretch",
     )
 
+with tabs[6]:
+    st.header("7. 국제 노선별 상세 분석 (2018-2025)")
+    st.info(
+        "핵심 통계: 일본 및 동남아 노선의 강력한 회복세와 노선별 운영 효율성을 시각화합니다."
+    )
+
+    st.subheader("26. 인천공항 기반 상위 15개 국제 핵심 노선")
+    st.image(f"{IMG_DIR}/26_top15_intl_det.png", width="stretch")
+    st.write("도쿄, 오사카, 방콕 등 단거리 핵심 거점에 수요가 집중되어 있습니다.")
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.subheader("27. 주요 노선 여객 추이 (정상 월 1만명 유지 50개 노선)")
+        st.image(f"{IMG_DIR}/27_top5_route_trend.png", width="stretch")
+        st.write(
+            "결측치와 팬데믹 기간을 제외한 정상 월에 1만 명 이상 유지된 50개 핵심 노선을 분석했습니다."
+        )
+    with c2:
+        st.subheader("28. 코로나19 대비 회복률 (2024)")
+        st.image(f"{IMG_DIR}/28_route_recovery.png", width="stretch")
+
+    st.subheader("29. 노선별 여객-화물 복합 특성 분석 (포지셔닝)")
+    st.image(f"{IMG_DIR}/29_route_pax_cargo.png", width="stretch")
+    st.write("관광 수요와 물류 수요의 노선별 가중치를 한눈에 파악할 수 있습니다.")
+
+    st.subheader("30. 노선별 편당 평균 여객 수 (운항 효율성 지표)")
+    st.image(f"{IMG_DIR}/30_route_efficiency.png", use_container_width=True)
+    st.write(
+        "운항 편당 탑승 인원 분석을 통해 노선별 시장 지배력과 효율성을 검토합니다."
+    )
+
+with tabs[7]:
+    st.header("8. 주요 지역별 상세 노선 및 시장 비교 분석")
+    st.info("일본, 동남아, 중국, 유럽 등 주요 권역별 핵심 노선들의 추이와 전체 시장 볼륨을 비교합니다.")
+
+    st.subheader("36. 5대 주요 지역별 전체 여객 합계 추이 비교")
+    st.image(f"{IMG_DIR}/36_route_region_compare.png", use_container_width=True)
+    st.write("일본과 동남아 시장이 전체 여객 성장을 주도하고 있음을 데이터로 확인할 수 있습니다.")
+
+    st.markdown("---")
+    st.subheader("31-35. 지역별 핵심 우량 노선 추이 (정상 운영 월 1만+)")
+
+    c1, c2 = st.columns(2)
+    with c1:
+        st.image(f"{IMG_DIR}/31_route_japan.png", caption="일본 지역", use_container_width=True)
+        st.image(f"{IMG_DIR}/33_route_china.png", caption="중국 지역", use_container_width=True)
+        st.image(f"{IMG_DIR}/34_route_korea.png", caption="한국(내항기)", use_container_width=True)
+    with c2:
+        st.image(f"{IMG_DIR}/35_route_sea.png", caption="동남아 지역", use_container_width=True)
+        st.image(f"{IMG_DIR}/32_route_europe.png", caption="유럽 지역", use_container_width=True)
+
 st.sidebar.markdown("---")
-st.sidebar.info("🎯 25개 이상의 전문 분석 모듈이 실시간으로 구동되고 있습니다.")
+st.sidebar.info("🎯 30개 이상의 전문 분석 모듈이 실시간으로 구동되고 있습니다.")
 st.sidebar.caption("Data Source: Incheon Airport, Airportal, KOSIS, KMA")

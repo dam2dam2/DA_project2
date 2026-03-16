@@ -6,3 +6,4 @@ seaborn
 koreanize-matplotlib
 numpy
 altair<5
+requests
