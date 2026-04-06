@@ -81,9 +81,9 @@ def load_review_data():
     # 평점 50점 만점 -> 5점 만점으로 환산 (원본 데이터 0~50 확인됨)
     df['rating_5'] = pd.to_numeric(df['평점'], errors='coerce').fillna(0) / 10.0
     
-    # 감성 라벨 정규화 (긍정/부정)
+    # 감성 라벨 정규화 (긍정/부정) 및 데이터 타입 안정화
     if 'sentiment_label' in df.columns:
-        df['sentiment_label'] = df['sentiment_label'].str.strip()
+        df['sentiment_label'] = df['sentiment_label'].astype(str).str.strip()
     
     # 월/요일 추출
     df['month'] = df['작성일'].dt.to_period('M').astype(str)
