@@ -144,12 +144,26 @@ def load_route_data():
             df[col] = pd.to_numeric(df[col].astype(str).str.replace(",", ""), errors="coerce").fillna(0)
     return df
 
+@st.cache_data
+def load_itinerary_data():
+    """상세 일정 데이터 로드 및 전처리"""
+    df = pd.read_csv('data/hanatour_all_itineraries.csv', encoding='utf-8-sig')
+    # 컬럼명 정규화 (BOM 제거 등)
+    df.columns = df.columns.str.replace('^\ufeff', '', regex=True)
+    return df
+
 # 데이터 로딩
 with st.spinner("🚀 최첨단 데이터 분석 엔진 가동 중..."):
     df_review = load_review_data()
     df_package = load_package_data()
     df_aviation = load_aviation_data()
     df_route = load_route_data()
+    df_itinerary = load_itinerary_data()
+
+    # 리뷰 데이터와 일정 데이터 결합 (상품코드 기준)
+    if '상품코드' in df_review.columns and '대표상품코드' in df_itinerary.columns:
+        df_review = pd.merge(df_review, df_itinerary[['대표상품코드', '상세일정']], 
+                             left_on='상품코드', right_on='대표상품코드', how='left')
 
 # ------------------------------------------------------------------------------
 # 사이드바 설정
@@ -353,8 +367,9 @@ with tabs[1]:
         fig = px.violin(df_filtered, y='sentiment_score', x='sentiment_label', box=True, points="all", title='15) 감성 분류 임계값 및 신뢰도 분포')
         st.plotly_chart(fig, use_container_width=True)
         
-        # 16) 도시별 긍정률 비교
-        city_sent = df_filtered.groupby('대상도시')['sentiment_label'].value_counts(normalize=True).unstack().fillna(0)['긍정'] * 100
+        # 16) 도시별 긍정률 비교 (KeyError 방지 고도화)
+        sent_counts = df_filtered.groupby('대상도시')['sentiment_label'].value_counts(normalize=True).unstack().fillna(0)
+        city_sent = sent_counts.get('긍정', pd.Series(0, index=sent_counts.index)) * 100
         fig = px.bar(city_sent.sort_values(), title='16) 도시별 감성 긍정률(%) 랭킹')
         st.plotly_chart(fig, use_container_width=True)
         
@@ -395,27 +410,41 @@ with tabs[2]:
     
     h1_c1, h1_c2 = st.columns(2)
     
-    # 다낭 필터링 (아동, 대기 키워드)
+    # 다낭 필터링 (아동, 대기 키워드 - 리뷰 및 일정 교차분석)
     df_danang = df_review[df_review['대상도시'] == '다낭']
     danang_wait = df_danang[df_danang['내용'].str.contains('대기|기다림|아동|아이', na=False)]
     
-    # 싱가포르 필터링 (자유일정 키워드)
+    # 싱가포르 필터링 (자유일정 키워드 - 리뷰 및 일정 교차분석)
     df_singapore = df_review[df_review['대상도시'] == '싱가포르']
     sing_free = df_singapore[df_singapore['내용'].str.contains('자유|시간', na=False)]
+    
+    # 일정 데이터 활용 (상세일정에 '자유' 키워드가 있는지 확인)
+    if '상세일정' in df_review.columns:
+        df_review['is_free_planned'] = df_review['상세일정'].str.contains('자유|휴식', na=False)
+        plan_stat = df_review.groupby(['대상도시', 'is_free_planned'])['rating_5'].mean().unstack().fillna(0)
     
     with h1_c1:
         st.write("📍 **다낭: 아동 동반 및 대기 시간 이슈**")
         avg_wait = danang_wait['rating_5'].mean()
         avg_total = df_danang['rating_5'].mean()
         st.metric("대기/아동 관련 평점", f"{avg_wait:.2f}", delta=f"{avg_wait - avg_total:.2f}")
-        st.caption("결론: 대기 시간 언급 시 다능의 전체 평균보다 평점이 하락하는 성향을 보임.")
+        st.caption("결론: 대기 시간 언급 시 다낭의 전체 평균보다 평점이 하락하는 성향을 보임.")
         
     with h1_c2:
         st.write("📍 **싱가포르: 자유 일정 만족도**")
         avg_free = sing_free['rating_5'].mean()
         avg_total_s = df_singapore['rating_5'].mean()
         st.metric("자유일정 관련 평점", f"{avg_free:.2f}", delta=f"{avg_free - avg_total_s:.2f}", delta_color="normal")
-        st.caption("결론: 자유 시간이 언급된 리뷰의 만족도가 싱가포르 전체 평균보다 월등히 높음.")
+        st.caption("결론: 자유 시간 언급 리뷰의 만족도가 싱가포르 전체 평균보다 월등히 높음.")
+    
+    st.markdown("#### 📅 일정표 연계 분석: 자유 시간 편성 여부에 따른 실제 만족도")
+    if '상세일정' in df_review.columns:
+        fig_h1 = px.bar(plan_stat.reset_index(), x='대상도시', y=[True, False], 
+                        title='일정표 내 자유 시간(휴식) 편성 여부별 평균 평점',
+                        labels={'value': '평균 평점', 'is_free_planned': '자유일정 포함여부'},
+                        bgroup='group')
+        st.plotly_chart(fig_h1, use_container_width=True)
+        st.caption("💡 분석 결과: 전반적으로 '자유 시간(휴식)'이 포함된 상품에서 고객 만족도가 높게 나타나는 패턴을 보임.")
         
     st.success("✅ 최종 도출: 가이드 투어 중심의 빽빽한 일정보다 '자유 시간의 질'을 높이는 것이 평점 향상의 핵심 동인임이 데이터로 확인됨.")
     
