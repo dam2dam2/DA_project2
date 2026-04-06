@@ -68,12 +68,23 @@ st.markdown("""
 
 @st.cache_data
 def load_review_data():
-    """리뷰 감성 분석 결과 로드"""
+    """리뷰 감성 분석 결과 로드 및 정밀화"""
     df = pd.read_csv('data/hanatour_sentiment_result.csv', encoding='utf-8-sig')
+    
+    # 중복 제거 (리뷰ID 기준)
+    if '리뷰ID' in df.columns:
+        df = df.drop_duplicates(subset='리뷰ID')
+    
     # 작성일 테이터타입 변환 및 정규화
     df['작성일'] = pd.to_datetime(df['작성일'].str.strip(), errors='coerce')
-    # 평점 50점 만점 -> 5점 만점으로 환산 (분석 용이성)
-    df['rating_5'] = df['평점'] / 10.0
+    
+    # 평점 50점 만점 -> 5점 만점으로 환산 (원본 데이터 0~50 확인됨)
+    df['rating_5'] = pd.to_numeric(df['평점'], errors='coerce').fillna(0) / 10.0
+    
+    # 감성 라벨 정규화 (긍정/부정)
+    if 'sentiment_label' in df.columns:
+        df['sentiment_label'] = df['sentiment_label'].str.strip()
+    
     # 월/요일 추출
     df['month'] = df['작성일'].dt.to_period('M').astype(str)
     df['day_name'] = df['작성일'].dt.day_name()
@@ -440,10 +451,17 @@ with tabs[2]:
     
     st.markdown("#### 📅 일정표 연계 분석: 자유 시간 편성 여부에 따른 실제 만족도")
     if '상세일정' in df_review.columns:
-        fig_h1 = px.bar(plan_stat.reset_index(), x='대상도시', y=[True, False], 
+        # Boolean 컬럼을 문자열로 변환하여 시각화 안정성 확보
+        fig_df = plan_stat.reset_index()
+        fig_df.columns = [str(c) for c in fig_df.columns]
+        # 컬럼 이름 매핑 (True/False -> 알기 쉬운 이름)
+        mapping = {'True': '자유일정 포함', 'False': '미포함'}
+        available_cols = [c for c in ['True', 'False'] if c in fig_df.columns]
+        
+        fig_h1 = px.bar(fig_df, x='대상도시', y=available_cols, 
                         title='일정표 내 자유 시간(휴식) 편성 여부별 평균 평점',
-                        labels={'value': '평균 평점', 'is_free_planned': '자유일정 포함여부'},
-                        bgroup='group')
+                        labels={'value': '평균 평점', 'variable': '자유일정 편성 여부'},
+                        barmode='group')
         st.plotly_chart(fig_h1, use_container_width=True)
         st.caption("💡 분석 결과: 전반적으로 '자유 시간(휴식)'이 포함된 상품에서 고객 만족도가 높게 나타나는 패턴을 보임.")
         
