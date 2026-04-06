@@ -120,7 +120,24 @@ def load_aviation_data():
 def load_route_data():
     """상세 노선 데이터 로드 (Top Routes 등)"""
     df = pd.read_csv('data/airportal_route_intl_detailed_2018_2025.csv', encoding='utf-8-sig')
-    # 수치형 변환
+    
+    # 1. 컬럼명 정규화 (BOM 제거 및 매핑)
+    df.columns = df.columns.str.replace('^\ufeff', '', regex=True)
+    column_mapping = {
+        'year_month': 'year_month',
+        'airport_name': 'ap_ROUTE',
+        'pass': 'total_PERSON',
+        'cargo': 'total_WEIGHT',
+        'flight_cnt': 'total_FP',
+        'code_name': 'koreaAirport'
+    }
+    df = df.rename(columns=column_mapping)
+    
+    # 2. 연도 추출 (year_month: 201801 -> 2018)
+    if 'year_month' in df.columns:
+        df['year'] = (pd.to_numeric(df['year_month'], errors='coerce') // 100).fillna(0).astype(int)
+    
+    # 3. 수치형 변환
     num_cols = ['total_PERSON', 'total_WEIGHT', 'total_FP']
     for col in num_cols:
         if col in df.columns:
