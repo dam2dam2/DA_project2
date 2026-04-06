@@ -69,7 +69,7 @@ st.markdown("""
 @st.cache_data
 def load_review_data():
     """리뷰 감성 분석 결과 로드"""
-    df = pd.read_csv('hanatour_sentiment_result.csv', encoding='utf-8-sig')
+    df = pd.read_csv('data/hanatour_sentiment_result.csv', encoding='utf-8-sig')
     # 작성일 테이터타입 변환 및 정규화
     df['작성일'] = pd.to_datetime(df['작성일'].str.strip(), errors='coerce')
     # 평점 50점 만점 -> 5점 만점으로 환산 (분석 용이성)
