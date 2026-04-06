@@ -6,7 +6,7 @@ import os
 import glob
 import numpy as np
 from datetime import datetime
-import koreanize_matplotlib # 한글 폰트 설정
+# import koreanize_matplotlib # Python 3.12+ 환경에서 distutils 제거로 인한 오류 가능성으로 일시 제외
 
 # 페이지 설정 (프리미엄 레이아웃)
 st.set_page_config(

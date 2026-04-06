@@ -3,7 +3,7 @@ streamlit>=1.35.0
 plotly
 matplotlib
 seaborn
-koreanize-matplotlib
+# koreanize-matplotlib # Removed due to compatibility issues with Python 3.12+
 numpy
 altair<5
 requests
