@@ -160,9 +160,10 @@ with st.spinner("🚀 최첨단 데이터 분석 엔진 가동 중..."):
     df_route = load_route_data()
     df_itinerary = load_itinerary_data()
 
-    # 리뷰 데이터와 일정 데이터 결합 (상품코드 기준)
+    # 리뷰 데이터와 일정 데이터 결합 (대표상품코드 기준 중복 제거 후 1:1 결합)
     if '상품코드' in df_review.columns and '대표상품코드' in df_itinerary.columns:
-        df_review = pd.merge(df_review, df_itinerary[['대표상품코드', '상세일정']], 
+        df_itinerary_unique = df_itinerary.drop_duplicates(subset='대표상품코드')
+        df_review = pd.merge(df_review, df_itinerary_unique[['대표상품코드', '상세일정']], 
                              left_on='상품코드', right_on='대표상품코드', how='left')
 
 # ------------------------------------------------------------------------------
@@ -387,12 +388,12 @@ with tabs[1]:
         st.write("18) 긍정 리뷰 핵심 키워드 Top 20")
         # 간단한 단어 빈도 시뮬레이션 (키워드 추출 라이브러리 부재 시 리뷰요약 활용)
         pos_keywords = df_filtered[df_filtered['sentiment_label'] == '긍정']['리뷰요약'].dropna().str.split(', ').explode().value_counts().head(20)
-        fig = px.treemap(names=pos_keywords.index, parents=[""]*20, values=pos_keywords.values, color=pos_keywords.values, color_continuous_scale='Blues')
+        fig = px.treemap(names=pos_keywords.index, parents=[""]*len(pos_keywords), values=pos_keywords.values, color=pos_keywords.values, color_continuous_scale='Blues')
         st.plotly_chart(fig, use_container_width=True)
     with k2:
         st.write("19) 부정 리뷰 핵심 키워드 Top 20")
         neg_keywords = df_filtered[df_filtered['sentiment_label'] == '부정']['리뷰요약'].dropna().str.split(', ').explode().value_counts().head(20)
-        fig = px.treemap(names=neg_keywords.index, parents=[""]*20, values=neg_keywords.values, color=neg_keywords.values, color_continuous_scale='Reds')
+        fig = px.treemap(names=neg_keywords.index, parents=[""]*len(neg_keywords), values=neg_keywords.values, color=neg_keywords.values, color_continuous_scale='Reds')
         st.plotly_chart(fig, use_container_width=True)
 
     st.write("20) 텍스트 길이와 감성 점수의 밀도 분석")
