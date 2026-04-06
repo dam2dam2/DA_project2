@@ -1,0 +1,260 @@
+{
+  "data": {
+    "reviews": [
+      {
+        "id": "d3b5df49-6148-45b9-b888-545b599d78d0",
+        "resourceId": "6941092b0e45cd15f469582e",
+        "comment": "친구랑 처음가는 여행이라 조금 걱정했는데 \n패키지라 괜한 걱정이였어요 아무래도 짜여진 스케줄이라 조금 불편하고 힘든건 있지만 분위기 메이커 윈씨랑 수다쟁이 마상효님 덕분에 즐거운 여행이였네요 다음에는 엄마랑도 갈수 있을것 같네요😊\n아. 리조트 조식 맛있어요 리조트 이뻐요~\n소심한 대문자 I이는 패키지 괜찮습니다",
+        "rating": 5,
+        "media": [
+          {
+            "cloudinaryId": "a86d4898-07ad-43da-899f-acfb313629e1",
+            "id": "a86d4898-07ad-43da-899f-acfb313629e1",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/a86d4898-07ad-43da-899f-acfb313629e1.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/a86d4898-07ad-43da-899f-acfb313629e1.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/a86d4898-07ad-43da-899f-acfb313629e1.jpeg"
+              }
+            },
+            "source": {},
+            "width": 1080,
+            "height": 1366,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "5a0b7f9e-148f-4343-97e9-f4abb9b8cd89",
+            "id": "5a0b7f9e-148f-4343-97e9-f4abb9b8cd89",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/5a0b7f9e-148f-4343-97e9-f4abb9b8cd89.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/5a0b7f9e-148f-4343-97e9-f4abb9b8cd89.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/5a0b7f9e-148f-4343-97e9-f4abb9b8cd89.jpeg"
+              }
+            },
+            "source": {},
+            "width": 1080,
+            "height": 1366,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "cc1eac16-10de-48e0-afa0-ce0845820f7a",
+            "id": "cc1eac16-10de-48e0-afa0-ce0845820f7a",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/cc1eac16-10de-48e0-afa0-ce0845820f7a.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/cc1eac16-10de-48e0-afa0-ce0845820f7a.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/cc1eac16-10de-48e0-afa0-ce0845820f7a.jpeg"
+              }
+            },
+            "source": {},
+            "width": 1080,
+            "height": 1366,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          }
+        ],
+        "reviewedAt": "2026-03-15T00:01:11.381Z",
+        "isMyReview": false,
+        "blinded": false,
+        "purchaseInfo": null,
+        "user": {
+          "uid": "oYHi3M5ig32fOaUjCvKMnQ==",
+          "name": "권*련"
+        }
+      },
+      {
+        "id": "add54ef1-bcc4-414f-aefa-4443fe7920b9",
+        "resourceId": "6941092b0e45cd15f469582e",
+        "comment": "3/2~6 3박5일 우리 네자매가 해외여행은 처음으로 가게되었다. 노란색 네개의 캐리어를 구입해서 공항에서 주위의 집중을 받으며 즐거운 여행이 시작되었다. \n멜리아 비치리조트 호텔 전경이 아름다윘고 호텔식도 한국인을 위해 김치,고추장,흰죽을 준비해 놓은 것이 최고였다.\n우리 큰언니가 몸이 불편하였는데 귀엽고 애교 많은 현지가이드 윈과 덱스 닮은 잘생긴 한국  마상효가이드님께서 신경을 써 주고 배려 덕분에 여행믈 마칠 수 있었습니다.\n두 분 가이드 덕분에 즐겁고 행복한 여행이였습니다.\n윈 아이와 함께 건강하고 마상효 가이드님도 잘먹고 살 좀 쩌서 건강하게 지내시길 기도합니다.\n우리 딸 아들 같은 두분 다 사랑합니다.",
+        "rating": 5,
+        "media": [
+          {
+            "cloudinaryId": "f8c4bb78-11fd-4ca7-a6e1-7b10728748f8",
+            "id": "f8c4bb78-11fd-4ca7-a6e1-7b10728748f8",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/f8c4bb78-11fd-4ca7-a6e1-7b10728748f8.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/f8c4bb78-11fd-4ca7-a6e1-7b10728748f8.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/f8c4bb78-11fd-4ca7-a6e1-7b10728748f8.jpeg"
+              }
+            },
+            "source": {},
+            "width": 1210,
+            "height": 907,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "2245a064-f5e0-48ec-be37-eaf84de7a845",
+            "id": "2245a064-f5e0-48ec-be37-eaf84de7a845",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/2245a064-f5e0-48ec-be37-eaf84de7a845.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/2245a064-f5e0-48ec-be37-eaf84de7a845.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/2245a064-f5e0-48ec-be37-eaf84de7a845.jpeg"
+              }
+            },
+            "source": {},
+            "width": 1200,
+            "height": 900,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "917553c6-afdc-43fc-a6f1-3d717333d3e2",
+            "id": "917553c6-afdc-43fc-a6f1-3d717333d3e2",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/917553c6-afdc-43fc-a6f1-3d717333d3e2.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/917553c6-afdc-43fc-a6f1-3d717333d3e2.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/917553c6-afdc-43fc-a6f1-3d717333d3e2.jpeg"
+              }
+            },
+            "source": {},
+            "width": 3928,
+            "height": 2946,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "109241eb-b666-4bb4-bf4b-5f0501b5f021",
+            "id": "109241eb-b666-4bb4-bf4b-5f0501b5f021",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/109241eb-b666-4bb4-bf4b-5f0501b5f021.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/109241eb-b666-4bb4-bf4b-5f0501b5f021.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/109241eb-b666-4bb4-bf4b-5f0501b5f021.jpeg"
+              }
+            },
+            "source": {},
+            "width": 4000,
+            "height": 3000,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          },
+          {
+            "cloudinaryId": "850c98b9-da06-465d-a024-b6f1bdd966ae",
+            "id": "850c98b9-da06-465d-a024-b6f1bdd966ae",
+            "type": "image",
+            "sizes": {
+              "full": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_2048,w_2048/850c98b9-da06-465d-a024-b6f1bdd966ae.jpeg"
+              },
+              "large": {
+                "url": "https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/850c98b9-da06-465d-a024-b6f1bdd966ae.jpeg"
+              },
+              "small_square": {
+                "url": "https://media.triple.guide/triple-cms/c_fill,f_auto,h_256,w_256/850c98b9-da06-465d-a024-b6f1bdd966ae.jpeg"
+              }
+            },
+            "source": {},
+            "width": 3648,
+            "height": 2736,
+            "cloudinaryBucket": "triple-cms",
+            "metadata": {}
+          }
+        ],
+        "reviewedAt": "2026-03-07T17:34:58.706Z",
+        "isMyReview": false,
+        "blinded": false,
+        "purchaseInfo": null,
+        "user": {
+          "uid": "06L+1xsKnLCSRHGul1WlhA==",
+          "name": "김*미"
+        }
+      },
+      {
+        "id": "978f6e48-cdbc-41a6-bfd4-cb0342aa5815",
+        "resourceId": "6941092b0e45cd15f469582e",
+        "comment": "아이 둘이랑 함께하는 여행이라 패키지가 쉽지 않을거라 고민하다 누나 추천으로 도전한 여행이었는데 결과적으로 대만족에 감사함 가득 안고 돌아오게 되었습니다",
+        "rating": 5,
+        "media": [],
+        "reviewedAt": "2026-03-03T09:22:26.000Z",
+        "isMyReview": false,
+        "blinded": false,
+        "purchaseInfo": {
+          "orderId": "2026020510031",
+          "displayName": ""
+        },
+        "user": {
+          "uid": "2Eo9pg6CNudNklR6gqEf3Q==",
+          "name": "최*미"
+        }
+      },
+      {
+        "id": "07647bb3-41d2-4bf3-86b7-24e55387ef77",
+        "resourceId": "695df9c389dc82af5ab8ba6e",
+        "comment": "2/1~5 3박 5일 일정으로 팔십이 넘으신 엄마를 모시고 딸들과 며느리가 다낭여행을 다녀왔습니다.\n엄마가 패키지 여행을 잘 소화하실 수 있을까? 걱정하며 힘들면 몇군데 스킵하지하는 생각으로 여행길에 올랐습니다.\n하지만 김영호가이드님의 세심한 배려와 친절로 한군데도 빠짐없이 여행일정을 마치게 되어 우선은 가이드님께 감사 인사를 전하고 싶습니다.\n허리가 굽으셔서 오래 걷는게 부담이신 엄마를 휠체어에 태우고 끝까지 다낭 여행을 즐길 수 있도록 해주셔서 조금도 어려움과 부족함없이 편안하게 다낭과 호이안을 경험할 수 있었습니다.\n또한 먹는것도 가는데마다 다 맛있어서 대만족이었습니다.\n첫날 비바람으로 골든브릿지를 제대로 즐기지 못한 점이 아쉬워서 한번 더 가고싶다는 생각도 드네요.\n다낭에서 사온 침향 잘 먹고 있는데 비싼만큼 좋겠죠?\n커피필링제랑 재생크림. 노니치약도 너무 좋더라구요. 선물받은 가족 친지들도 좋다고 하네요^^\n그리고 한팀으로 함께했던 다른 가족들도 너무 좋으신분들이어서 더더욱 감사했고 재미있었습니다.\n암튼 모든게 편안하고 즐거웠던 여행이었습니다.\n김영호가이드님 감사합니다!",
+        "rating": 5,
+        "media": [],
+        "reviewedAt": "2026-02-20T16:37:10.000Z",
+        "isMyReview": false,
+        "blinded": false,
+        "purchaseInfo": {
+          "orderId": "2025122310089",
+          "displayName": ""
+        },
+        "user": {
+          "uid": "1yj2nXQNuNAqZTc7KT1KLQ==",
+          "name": "이*현"
+        }
+      },
+      {
+        "id": "53044298-cb96-4309-96ae-8bbc69b3cae4",
+        "resourceId": "6981c09574da885dd1922a32",
+        "comment": "우리부부랑 딸과 초등학생 5학년 1학년 손자들과 다낭여행\n둘째날 딸이 열이 많이나서 호텔에 있고\n우리부부랑 손자들과일정에 참석했다\n에너지가 넘치는 애들을 보는건 쉽지 않았다\n함께 여행 하는 우리 일행분들이 애들을 이뻐하면서\n많이 도와 주었고 특히 현지가이드 린양이\n우리 애들을 많이 챙겨 주었다\n그리고 저녁에 우리팀 강대현가이드님이 딸과 소통해서\n호이안으로 오게해서 아이들과 상봉하니\n애들이 너무 좋아했네요\n셋째날 바나힐 일정에 이번에는 작은손자가 배가 많이 아파\n저녁에 유람선 일정을 포기하고 응급실 가야할 상황인가\n고민했을때\n강대현가이드님이 현명하게 대처해줘서\n무리없이 여행일정을 마무리하고 왔어요\n우리애들 많이 이뻐해준 엄마랑 같이온 예쁜 수학선생님\n고맙다고 인사도 못했네요\n그리고 강대현과장님 우리 가족때문에\n스트레스 많이 받았을텐데 너무 미안합니다\n마지막까지 사진까지 보내줘서 고마워요\n결혼해서 행복하게 사세요",
+        "rating": 5,
+        "media": [],
+        "reviewedAt": "2026-02-01T23:57:18.000Z",
+        "isMyReview": false,
+        "blinded": false,
+        "purchaseInfo": {
+          "orderId": "2026011110020",
+          "displayName": ""
+        },
+        "user": {
+          "uid": "be/+ljhDVtQnCIqATecsjA==",
+          "name": "성*옥"
+        }
+      }
+    ]
+  }
+}
